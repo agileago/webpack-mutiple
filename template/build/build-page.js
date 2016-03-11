@@ -1,6 +1,5 @@
 /**
  * 需要构建的页面 一次只构建一个页面
- * @type {{entry: {app: string}, template: string, extractCss: boolean, absolutePath: boolean}}
  */
 
 module.exports = {
