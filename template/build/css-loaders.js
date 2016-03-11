@@ -1,4 +1,6 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var page = require('./build-page')
+var extractPath = page.absolutePath ? undefined : { publicPath: './' }
 
 module.exports = function (options) {
   // generate loader string to be used with extract text plugin
@@ -17,7 +19,7 @@ module.exports = function (options) {
 
     if (options.extract) {
       // override publicPath
-      return ExtractTextPlugin.extract('vue-style-loader', sourceLoader, { publicPath: './' })
+      return ExtractTextPlugin.extract('vue-style-loader', sourceLoader, extractPath)
     } else {
       return ['vue-style-loader', sourceLoader].join('!')
     }

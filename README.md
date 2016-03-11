@@ -1,6 +1,5 @@
-# vue-webpack-boilerplate
-
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+# vue-webpack-mutiple-boilerplate
+这个模板主要为开发多页面而创建   
 
 推荐使用`webstorm`12以上版本进行开发,因为12以上版本支持行内`sass/less`,并且拥有强大的智能提示,这样我们就可以把一些公共函数、变量定义到外面,轻松
 使用`sass/less`强大的编程功能书写css,例如:
@@ -30,107 +29,80 @@
 
 webstorm 配置 [webstorm-settings](https://raw.githubusercontent.com/agileago/webpack/master/settings.jar)
 
-### Usage
+### 使用
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+这是一个[vue-cli](https://github.com/vuejs/vue-cli).的项目模板
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init agileago/webpack my-project
+$ vue init agileago/webpack-mutiple my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
 
-### Folder Structure
+### 目录结构
 
 ``` bash
 .
-├── build
+├── build                       # 构建脚本
+│   ├── build-page.js         # 编译配置项
 │   ├── dev-server.js         # development server script
-│   ├── karma.conf.js         # unit testing config
 │   ├── webpack.base.conf.js  # shared base webpack config
 │   ├── webpack.dev.conf.js   # development webpack config
 │   ├── webpack.prod.conf.js  # production webpack config
 │   └── ...
 ├── src
-│   ├── main.js               # app entry file
-│   ├── App.vue               # main app component
-│   ├── components            # ui components
-│   │   └── ...
-│   └── assets                # module assets (processed by webpack)
-│       └── ...
-├── static                    # pure static assets (directly copied)
-├── dist                      # built files ready for deploy
-├── test
-│   └── unit                  # unit tests
-│       ├── index.js          # unit test entry file
-│       └── ...
-├── .babelrc                  # babel config
-├── .eslintrc.js              # eslint config
-├── index.html                # main html file
-└── package.json              # build scripts and dependencies
+│   ├── common               # 多个页面公用的组件或者功能库
+│   │   └── components      # 公用组件
+│   │   └── util              # 公用工具库
+│   ├── view                   # 多页面开发文件夹
+│   │   └── index             # index页面
+│   │      └── assets         # index页面的静态资源如图片等
+│   │      └── components    # index页面需要的组件
+│   │      └── main.js        # index页面入口文件
+│   │      └── template.html # index页面html模板
+│   │   └── detail             # detail 页面
+│   │      └── ...             # detail页面资源类index 
+├── lib                       # 外部静态资源未包含在npm中的库
+├── dist                      # 输出目录即发布目录
+├── .babelrc                  # babel 配置
+└── package.json              # 构建脚本和依赖
 ```
 
-### What's Included
+### 都包含什么
 
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Lint-on-save with ESLint
+- `npm run dev`: 开发环境执行命令
+  - Webpack + `vue-loader` 编译`*.vue`文件
+  - 热更新
+  - 错误即时显示
   - Source maps
+  - Sass
 
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
-  - **To serve built files, run an HTTP server inside `/dist`**.
+- `npm run build`: 生产环境编译命令
+  - 压缩js代码 [UglifyJS](https://github.com/mishoo/UglifyJS2).
+  - 压缩html [html-minifier](https://github.com/kangax/html-minifier).
+  - 抽取css和css压缩 [cssnano](https://github.com/ben-eb/cssnano).
+  - 静态资源加上hash戳并且自动注入到`index.html`中
 
-- `npm test`: Unit tests run in PhantomJS with Karma + karma-jasmine + karma-webpack.
-  - Supports ES2015 in test files.
-  - Supports all webpack loaders.
-  - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
+###  `lib/`
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+一些没有在npm里面的库,或者一些没法纳入webpack这个构建系统里面的文件,放入lib里面,lib直接拷贝到发布目录`dist`
 
-### Difference between `src/assets/` and `static/`
+### 多页面如何配置
 
-- Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. They will be processed by `url-loader` and `file-loader` before copied into `/static`.
+配置在`build/build-page.js`里面    
 
-- Files inside `static/` are copied directly; they can be reference anywhere via root-relative paths that start with `/static/`.
 
-In general you should prefer `src/assets/` as it allows you to leverage loader features such as file naming with hashes and conditional base-64 inline-ing.
-
-### Customizations
-
-You will likely need to do some tuning to suit your own needs:
-
-- Install additional libraries that you need, e.g. `vue-router`, `vue-resource`, `vuex`, etc...
-
-- Use your preferred `.eslintrc` config.
-
-- Add your preferred CSS pre-processor, for example:
-
-  ``` bash
-  npm install less-loader --save-dev
-  ```
-
-- Working with an existing backend server:
-
-  - The dev server is simply an [Express](http://expressjs.com/) server with [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) and [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) pre-configured. You can add your own routing rules to `build/dev-server.js` to proxy certain requests to an existing backend server. Or, if you are using Express yourself, you can simply copy the middleware configuration, but **make sure to add them only in development mode!**
-
-- For unit testing:
-
-  - You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `build/karma.conf.js`.
-
-  - You can also swap out Jasmine for other testing frameworks, e.g. use Mocha with [karma-mocha](https://github.com/karma-runner/karma-mocha).
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
+``` javascript
+module.exports = {
+  pageName: 'index',  // 入口文件夹名称
+  entry: {    // 入口配置
+    app: './src/view/index/main.js'
+  },
+  template: './src/view/index/template.html',  // 页面模板
+  extractCss: true,           // 是否抽取出css
+  absolutePath: false,         // 资源引用路径是否为绝对路径  当项目是部署到根域名下设置此值
+  sourceMap: true           //  生产环境下是否需要生成sourceMap
+}
 ```
