@@ -1,0 +1,48 @@
+{
+  "name": "{{ name }}",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js && ncp lib dist/lib",
+    "server": "cd dist && browser-sync start --server"
+  },
+  "dependencies": {
+    "vue": "^1.0.17",
+    "vuex": "^0.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^5.8.0",
+    "connect-history-api-fallback": "^1.1.0",
+    "cross-env": "^1.0.7",
+    "css-loader": "^0.23.0",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.4",
+    "function-bind": "^1.0.2",
+    "html-webpack-plugin": "^2.8.1",
+    "inject-loader": "^2.0.1",
+    "json-loader": "^0.5.4",
+    "ncp": "^2.0.0",
+    "node-sass": "^3.4.2",
+    "rimraf": "^2.5.0",
+    "sass-loader": "^3.1.2",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^8.1.3",
+    "vue-style-loader": "^1.0.0",
+    "vuex": "^0.3.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.6.0"
+  }
+}
