@@ -27,7 +27,7 @@
 </style>
 ```
 
-webstorm 配置 [webstorm-settings](https://raw.githubusercontent.com/agileago/webpack/master/settings.jar)
+webstorm 配置 [webstorm-settings](https://raw.githubusercontent.com/agileago/webpack/master/webstorm-settings.jar)
 
 ### 使用
 
