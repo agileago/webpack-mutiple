@@ -10,8 +10,7 @@
     "server": "cd dist && browser-sync start --server"
   },
   "dependencies": {
-    "vue": "^1.0.17",
-    "vuex": "^0.5.0"
+    "vue": "^1.0.17"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -33,9 +32,12 @@
     "json-loader": "^0.5.4",
     "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.2",
     "rimraf": "^2.5.0",
     "sass-loader": "^3.1.2",
     "url-loader": "^0.5.7",
+    "style-loader": "^0.13.0",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.1.3",

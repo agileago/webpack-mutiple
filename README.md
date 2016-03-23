@@ -106,3 +106,13 @@ module.exports = {
   sourceMap: true           //  生产环境下是否需要生成sourceMap
 }
 ```
+### tips
+
+当想在工程里面引入`node_modules`下工程某些源代码,但这些源代码有可能是es6语法的,可直接在webpack的
+loader里面添加
+```javascript
+{
+  test: /vux.src.*?js$/
+}
+```
+就是模块名 . 源码文件夹 js文件
