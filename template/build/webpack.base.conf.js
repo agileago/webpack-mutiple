@@ -5,7 +5,7 @@ module.exports = {
   entry: page.entry,
   output: {
     path: path.resolve(__dirname, '../dist/'+ page.pageName +'/static'),
-    publicPath: page.absolutePath ? '/' + page.pageName + '/static/' : './static/',
+    publicPath: page.absolutePath ? page.cdnUrl + page.pageName + '/static/' : './static/',
     filename: '[name].js'
   },
   resolve: {

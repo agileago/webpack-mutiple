@@ -47,7 +47,7 @@ config.plugins = (config.plugins || []).concat([
     filename: '../index.html',
     template: page.template,
     inject: true,
-    path: page.absolutePath ? '' : '..',
+    path: page.absolutePath ? page.absolutePath : '../',
     minify: {
       removeComments: true,
       collapseWhitespace: true,
