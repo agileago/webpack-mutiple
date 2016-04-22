@@ -102,8 +102,9 @@ module.exports = {
   },
   template: './src/view/index/template.html',  // 页面模板
   extractCss: true,           // 是否抽取出css
-  absolutePath: false,         // 资源引用路径是否为绝对路径  当项目是部署到根域名下设置此值
-  sourceMap: true           //  生产环境下是否需要生成sourceMap
+  absolutePath: false,         // 资源引用路径是否为绝对路径  当项目是部署到根域名或者cdn地址时设置此值
+  sourceMap: true,           //  生产环境下是否需要生成sourceMap
+  cdnUrl: 'http://cdn/'   // cdn绝对路径 如果是项目根目录设置为 /
 }
 ```
 ### tips
