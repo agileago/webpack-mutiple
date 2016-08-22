@@ -10,7 +10,7 @@ config.devtool = 'source-map'
 
 config.vue = config.vue || {}
 config.vue.loaders = config.vue.loaders || {}
-cssLoaders({ sourceMap: false, extract: false }).forEach(function (loader) {
+cssLoaders({ sourceMap: true, extract: false }).forEach(function (loader) {
   config.vue.loaders[loader.key] = loader.value
 })
 
@@ -29,7 +29,8 @@ config.plugins = (config.plugins || []).concat([
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: page.template,
-    inject: true
+    inject: true,
+    dev: true
   })
 ])
 

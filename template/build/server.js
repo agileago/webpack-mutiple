@@ -1,9 +1,9 @@
-var express = require('express')
-var webpack = require('webpack')
-var config = require('./webpack.dev.js')
+const express = require('express')
+const webpack = require('webpack')
+const config = require('./webpack.dev.js')
 
-var app = express()
-var compiler = webpack(config)
+const app = express()
+const compiler = webpack(config)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
@@ -15,7 +15,6 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
     chunkModules: false
   }
 })
-
 var hotMiddleware = require('webpack-hot-middleware')(compiler)
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
@@ -34,8 +33,8 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 // serve pure static assets
 app.use('/lib', express.static('./lib'))
-
-app.listen(8080, function (err) {
+// mobile visit in one wifi
+app.listen(8080, '0.0.0.0', function (err) {
   if (err) {
     console.log(err)
     return

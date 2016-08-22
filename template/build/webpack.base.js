@@ -1,9 +1,8 @@
-var path = require('path')
-var page = require('./build-page')
+const path = require('path')
+const page = require('./build-page')
+const webpack = require('webpack')
 
-const postcss = [
-  require('autoprefixer')({ browsers: ['last 4 versions'] })
-]
+const postcss = [require('autoprefixer')({ browsers: ['last 3 versions']})]
 
 module.exports = {
   entry: page.entry,
@@ -43,12 +42,22 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash:7]'
         }
-      }
+      },
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['style', 'css', 'postcss']
+      // }
     ]
   },
-  postcss: postcss,
+  postcss,
   vue: {
     loaders: {},
-    postcss: postcss
-  }
+    postcss
+  },
+  plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./manifest.json')
+    })
+  ]
 }
