@@ -1,8 +1,7 @@
 /**
  * 需要构建的页面 一次只构建一个页面
  */
-
-var pageName = 'index'
+const pageName = 'index'
 
 module.exports = {
   pageName: pageName,
@@ -10,8 +9,8 @@ module.exports = {
     app: './src/view/' + pageName + '/main.js'
   },
   template: './src/view/' + pageName + '/template.html',  // 页面模板
-  sourceMap: true,           //  生产环境下是否需要生成sourceMap
+  sourceMap: false,           //  生产环境下是否需要生成sourceMap
   extractCss: true,           // 是否抽取出css
-  absolutePath: false,         // 资源引用路径是否为绝对路径  当项目是部署到根域名下设置此值
+  absolutePath: false,         // 资源引用路径是否为绝对路径  即CDN路径
   cdnUrl: 'http://cdn/'       // cdn 地址
 }

@@ -1,28 +1,22 @@
 <template>
   <div class="index">
-    <menu></menu>
-    index html
-    <div class="pointer"></div>
-    <img src="../assets/scratch-bg.png" alt="">
+    <p>{{ msg }}</p>
   </div>
 </template>
 
-<script type="text/babel">
-  import Menu from 'src/common/components/Menu.vue'
-
+<script>
   export default {
-    components: { Menu }
+    data () {
+      return { msg: 'hello vue2 webpack2!' }
+    }
   }
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+  $red: #fff27b;
   .index {
-    background-color: red;
-  }
-
-  .pointer {
-    width: 200px;
-    height: 200px;
-    background-image: url("../assets/turn-pointer.png");
+    transform: translate(0, 0);
+    color: $red;
+    border: 1px solid #ccc;
   }
 </style>

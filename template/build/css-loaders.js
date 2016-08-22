@@ -1,6 +1,6 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var page = require('./build-page')
-var extractPath = page.absolutePath ? undefined : { publicPath: './' }
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const page = require('./build-page')
+const extractPath = page.absolutePath ? undefined : './'
 
 module.exports = function (options) {
   // generate loader string to be used with extract text plugin
@@ -16,15 +16,19 @@ module.exports = function (options) {
       }
       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
     }).join('!')
-
+    
     if (options.extract) {
       // override publicPath
-      return ExtractTextPlugin.extract('vue-style-loader', sourceLoader, extractPath)
+      return ExtractTextPlugin.extract({
+        fallbackLoader: 'vue-style-loader',
+        loader: sourceLoader,
+        publicPath: extractPath
+      })
     } else {
       return ['vue-style-loader', sourceLoader].join('!')
     }
   }
-
+  
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   return [
     {
