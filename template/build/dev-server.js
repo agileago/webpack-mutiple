@@ -9,7 +9,10 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
   stats: {
     colors: true,
-    chunks: false
+    chunks: false,
+    children: false,
+    chunks: false,
+    chunkModules: false
   }
 })
 

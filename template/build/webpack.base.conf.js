@@ -1,6 +1,10 @@
 var path = require('path')
 var page = require('./build-page')
 
+const postcss = [
+  require('autoprefixer')({ browsers: ['last 4 versions'] })
+]
+
 module.exports = {
   entry: page.entry,
   output: {
@@ -41,5 +45,10 @@ module.exports = {
         }
       }
     ]
+  },
+  postcss: postcss,
+  vue: {
+    loaders: {},
+    postcss: postcss
   }
 }
