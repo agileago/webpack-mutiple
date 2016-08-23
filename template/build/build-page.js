@@ -3,8 +3,10 @@
  */
 const pageName = 'index'
 
+const vendors = ['vue']
 module.exports = {
   pageName: pageName,
+  vendors: vendors,
   entry: {    // 入口配置
     app: './src/view/' + pageName + '/main.js'
   },

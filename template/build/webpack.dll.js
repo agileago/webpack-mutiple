@@ -1,10 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 
-const vendors = [
-  'vue',
-  'jquery'
-]
+const vendors = require('./build-page').vendors
 
 module.exports = [
   {

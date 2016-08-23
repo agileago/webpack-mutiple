@@ -2,7 +2,3 @@
 node_modules/
 npm-debug.log
 .idea
-dist
-build/manifest.json
-lib/dev
-lib/vendor.common.js

@@ -1,37 +1,32 @@
 <template>
   <div class="index">
-    <p @click="click">{{ msg }}</p>
-    <img src="../assets/scratch-bg.png">
-    <div class="point"></div>
+    <header class="header">Vue2 Webpack2 template</header>
+    <img src="../assets/turn-pointer.png">
   </div>
 </template>
 
 <script>
-  /* 测试webpack2 tree shaking */
-  import { foo } from '../../../common/util/message'
   export default {
     data () {
-      return { msg: 'hello vue2 webpack2!' }
-    },
-    methods: {
-      click () {
-        foo()
-      }
+      return { msg: 'Vue2 Webpack2 template' }
     }
   }
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-  $red: #ff4438;
   .index {
-    transform: translate(0, 0);
-    color: $red;
-    border: 1px solid #ccc;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
-  .point {
-    width: 100px;
-    height: 100px;
-    background-image: url(../assets/turn-pointer.png);
-    background-repeat: no-repeat;
+  .header {
+    margin: 60px auto;
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
   }
 </style>

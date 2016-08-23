@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>index</title>
-  <% if (htmlWebpackPlugin.options.dev){ %>
-  <script src="<%= htmlWebpackPlugin.options.path %>lib/dev/vendor.common.js"></script>
-  <% } else { %>
-  <script src="<%= htmlWebpackPlugin.options.path %>lib/vendor.common.js"></script>
-  <% } %>
 </head>
 <body>
 <div id="app"></div>
+
+<% if (htmlWebpackPlugin.options.dev){ %>
+<script src="<%= htmlWebpackPlugin.options.path %>lib/dev/vendor.common.js"></script>
+<% } else { %>
+<script src="<%= htmlWebpackPlugin.options.path %>lib/vendor.common.js"></script>
+<% } %>
 </body>
 </html>

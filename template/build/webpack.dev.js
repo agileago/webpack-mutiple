@@ -10,7 +10,7 @@ config.devtool = 'source-map'
 
 config.vue = config.vue || {}
 config.vue.loaders = config.vue.loaders || {}
-cssLoaders({ sourceMap: true, extract: false }).forEach(function (loader) {
+cssLoaders({ sourceMap: false, extract: false }).forEach(function (loader) {
   config.vue.loaders[loader.key] = loader.value
 })
 
