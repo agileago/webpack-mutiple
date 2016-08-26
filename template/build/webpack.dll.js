@@ -7,7 +7,7 @@ module.exports = {
     vendor: vendors
   },
   output: {
-    path: path.join(__dirname, '../lib'),
+    path: path.join(__dirname, '../lib/dev'),
     filename: '[name].common.js',
     library: '[name]_common'
   },
@@ -21,6 +21,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+  module.exports.output.path = path.join(__dirname, '../lib')
   module.exports.plugins = module.exports.plugins.concat([
     new webpack.DefinePlugin({
       'process.env': {
