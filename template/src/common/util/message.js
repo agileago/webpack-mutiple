@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export function show () {
   console.log('i am show')
 }
