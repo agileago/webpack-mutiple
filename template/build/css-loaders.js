@@ -20,12 +20,12 @@ module.exports = function (options) {
     if (options.extract) {
       // override publicPath
       return ExtractTextPlugin.extract({
-        fallbackLoader: 'vue-style-loader',
+        fallbackLoader: 'style-loader',
         loader: sourceLoader,
         publicPath: extractPath
       })
     } else {
-      return ['vue-style-loader', sourceLoader].join('!')
+      return ['style-loader', sourceLoader].join('!')
     }
   }
   

@@ -43,10 +43,10 @@ module.exports = {
           name: '[name].[ext]?[hash:7]'
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['style', 'css', 'postcss']
-      // }
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss']
+      }
     ]
   },
   postcss,

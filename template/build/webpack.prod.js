@@ -7,25 +7,15 @@ var page = require('./build-page')
 var rimraf = require('rimraf')
 var path = require('path')
 
-// naming output files with hashes for better caching.
-// dist/index.html will be auto-generated with correct URLs.
 config.output.filename = '[name].[chunkhash:8].js'
 config.output.chunkFilename = '[id].[chunkhash:8].js'
-
-// whether to generate source map for production files.
-// disabling this can speed up the build.
-
 config.devtool = page.sourceMap ? 'source-map' : false
 
-config.vue = config.vue || {}
-config.vue.loaders = config.vue.loaders || {}
-// set if want to extract css
 cssLoaders({ sourceMap: page.sourceMap , extract: page.extractCss }).forEach(function (loader) {
   config.vue.loaders[loader.key] = loader.value
 })
 
 config.plugins = (config.plugins || []).concat([
-  // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: '"production"'
@@ -40,11 +30,7 @@ config.plugins = (config.plugins || []).concat([
       warnings: false
     }
   }),
-  // extract css into its own file
   new ExtractTextPlugin('[name].[contenthash:8].css'),
-  // generate dist index.html with correct asset hash for caching.
-  // you can customize output by editing /src/index.html
-  // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
     filename: '../index.html',
     template: page.template,
@@ -54,8 +40,6 @@ config.plugins = (config.plugins || []).concat([
       removeComments: true,
       collapseWhitespace: true,
       removeAttributeQuotes: true
-      // more options:
-      // https://github.com/kangax/html-minifier#options-quick-reference
     }
   })
 ])

@@ -5,7 +5,7 @@
     <div class="spinner">
       <img src="../assets/rings.svg">
     </div>
-    <button @click="show = true">公共弹出框</button>
+    <button @click="show = true">公共弹出框11</button>
     <custom-dialog :show="show" @close="show = false"></custom-dialog>
   </div>
 </template>
