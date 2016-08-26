@@ -1,7 +1,9 @@
-export function foo () {
-  console.log('i am foo')
+import Vue from 'vue'
+
+export function show () {
+  console.log('i am show')
 }
 
 export function bar () {
-  console.log('bar')
+  console.log('i am bar')
 }

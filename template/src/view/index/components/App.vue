@@ -1,15 +1,28 @@
 <template>
   <div class="index">
-    <header class="header">Vue2 Webpack2 template</header>
+    <header class="header" @click="click">{{ msg }}</header>
+    <p style="text-align: center;color: red;font-size: 20px;">Index 页面</p>
     <img src="../assets/turn-pointer.png">
+    <button @click="click">打开公共弹窗</button>
+    <index-dialog :show="show" @close="show = false"></index-dialog>
   </div>
 </template>
 
 <script>
+  import IndexDialog from '../../../common/components/Dialog.vue'
   export default {
     data () {
-      return { msg: 'Vue2 Webpack2 template' }
-    }
+      return {
+        msg: 'Vue2 Webpack2 template',
+        show: false
+      }
+    },
+    methods: {
+      click () {
+        this.show = true
+      }
+    },
+    components: { IndexDialog }
   }
 </script>
 

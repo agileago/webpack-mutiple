@@ -27,8 +27,6 @@
 </style>
 ```
 
-webstorm 配置 [webstorm-settings](https://raw.githubusercontent.com/agileago/webpack/master/webstorm-settings.jar)
-
 ### 使用
 
 这是一个[vue-cli](https://github.com/vuejs/vue-cli).的项目模板
@@ -70,41 +68,26 @@ $ npm run dev
 └── package.json              # 构建脚本和依赖
 ```
 
-### 都包含什么
-
-- `npm run dev`: 开发环境执行命令
-  - Webpack + `vue-loader` 编译`*.vue`文件
-  - 热更新
-  - 错误即时显示
-  - Source maps
-  - Sass
-
-- `npm run build`: 生产环境编译命令
-  - 压缩js代码 [UglifyJS](https://github.com/mishoo/UglifyJS2).
-  - 压缩html [html-minifier](https://github.com/kangax/html-minifier).
-  - 抽取css和css压缩 [cssnano](https://github.com/ben-eb/cssnano).
-  - 静态资源加上hash戳并且自动注入到`index.html`中
-
-###  `lib/`
-
-一些没有在npm里面的库,或者一些没法纳入webpack这个构建系统里面的文件,放入lib里面,lib直接拷贝到发布目录`dist`
-
 ### 多页面如何配置
 
 配置在`build/build-page.js`里面    
 
 
 ``` javascript
+const pageName = 'index'  // 本次要构建的页面
+
+const vendors = ['vue']   // 多个页面公共的模块打包
 module.exports = {
-  pageName: 'index',  // 入口文件夹名称
+  pageName: pageName,
+  vendors: vendors,
   entry: {    // 入口配置
-    app: './src/view/index/main.js'
+    app: './src/view/' + pageName + '/main.js'
   },
-  template: './src/view/index/template.html',  // 页面模板
+  template: './src/view/' + pageName + '/template.html',  // 页面模板
+  sourceMap: false,           //  生产环境下是否需要生成sourceMap
   extractCss: true,           // 是否抽取出css
-  absolutePath: false,         // 资源引用路径是否为绝对路径  当项目是部署到根域名或者cdn地址时设置此值
-  sourceMap: true,           //  生产环境下是否需要生成sourceMap
-  cdnUrl: 'http://cdn/'   // cdn绝对路径 如果是项目根目录设置为 /
+  absolutePath: false,         // 资源引用路径是否为绝对路径  即CDN路径 默认相对路径
+  cdnUrl: 'http://cdn/'       // cdn 地址
 }
 ```
 ### tips

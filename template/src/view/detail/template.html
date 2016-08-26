@@ -2,14 +2,15 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>detail</title>
-  <script src="<%= htmlWebpackPlugin.options.path %>/lib/zepto.min.js"></script>
 </head>
 <body>
-  <div id="root">
-    <app></app>
-  </div>
+<div id="app"></div>
+<% if (htmlWebpackPlugin.options.dev){ %>
+<script src="<%= htmlWebpackPlugin.options.path %>lib/dev/vendor.common.js"></script>
+<% } else { %>
+<script src="<%= htmlWebpackPlugin.options.path %>lib/vendor.common.js"></script>
+<% } %>
 </body>
 </html>

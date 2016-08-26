@@ -7,11 +7,12 @@
 </head>
 <body>
 <div id="app"></div>
-
 <% if (htmlWebpackPlugin.options.dev){ %>
 <script src="<%= htmlWebpackPlugin.options.path %>lib/dev/vendor.common.js"></script>
 <% } else { %>
 <script src="<%= htmlWebpackPlugin.options.path %>lib/vendor.common.js"></script>
 <% } %>
+<!--第三方库-->
+<script src="<%= htmlWebpackPlugin.options.path %>lib/zepto.min.js"></script>
 </body>
 </html>

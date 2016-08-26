@@ -1,7 +1,7 @@
 /**
  * 需要构建的页面 一次只构建一个页面
  */
-const pageName = 'index'
+const pageName = 'detail'
 
 const vendors = ['vue']
 module.exports = {
