@@ -34,6 +34,7 @@
 ```
 npm run vendor
 ```
+如果生成的有css文件模块,需要在`manifest.json`文件里面把`css`模块的meta重写成{},不然最终编译后会带有css文件
 
 开发环境下使用
 ```bash
