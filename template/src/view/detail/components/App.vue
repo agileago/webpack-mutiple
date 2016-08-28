@@ -34,7 +34,10 @@
   .index {
     text-align: center;
   }
-
+  .header {
+    transform: rotate(45deg);
+    color: gray;
+  }
   .spinner {
     width: 200px;
     height: 200px;

@@ -1,11 +1,15 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const page = require('./build-page')
-const extractPath = page.absolutePath ? undefined : './'
+const page = require('../config')
 
 module.exports = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders (loaders) {
     var sourceLoader = loaders.map(function (loader) {
+      // webpack2 has bug on minify css autoprefixer
+      // https://github.com/postcss/autoprefixer/issues/660#issuecomment-220808316
+      if (process.env.NODE_ENV === 'production' && loader === 'css') {
+        loader += '?-autoprefixer'
+      }
       var extraParamChar
       if (/\?/.test(loader)) {
         loader = loader.replace(/\?/, '-loader?')
@@ -22,7 +26,7 @@ module.exports = function (options) {
       return ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: sourceLoader,
-        publicPath: extractPath
+        publicPath: './'
       })
     } else {
       return ['style-loader', sourceLoader].join('!')

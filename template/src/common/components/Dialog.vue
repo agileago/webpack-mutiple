@@ -58,4 +58,9 @@
   .fade-leave {
     background-color: rgba(0, 0, 0, 0);
   }
+  .dialog-body {
+    background-image: url("../assets/test.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
 </style>  

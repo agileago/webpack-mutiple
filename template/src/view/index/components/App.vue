@@ -10,6 +10,7 @@
 
 <script>
   import IndexDialog from '../../../common/components/Dialog.vue'
+  import { show } from '../../../common/util/message'
   export default {
     data () {
       return {
@@ -20,6 +21,7 @@
     methods: {
       click () {
         this.show = true
+        show()
       }
     },
     components: { IndexDialog }

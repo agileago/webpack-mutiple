@@ -1,14 +1,17 @@
 const path = require('path')
-const page = require('./build-page')
+const page = require('../config')
 const webpack = require('webpack')
 
-const postcss = [require('autoprefixer')({ browsers: ['last 3 versions']})]
+page.entry = { app: './src/view/' + page.pageName + '/main.js' }
+page.template = './src/view/' + page.pageName + '/template.html'
+
+const postcss = [require('autoprefixer')({ browsers: page.browsers })]
 
 module.exports = {
   entry: page.entry,
   output: {
     path: path.resolve(__dirname, '../dist/'+ page.pageName +'/static'),
-    publicPath: page.absolutePath ? page.cdnUrl + page.pageName + '/static/' : './static/',
+    publicPath: page.absolutePath ? page.absolutePath + page.pageName + '/static/' : './static/',
     filename: '[name].js'
   },
   resolve: {
@@ -18,7 +21,7 @@ module.exports = {
     }
   },
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
+    fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
     loaders: [
@@ -43,21 +46,26 @@ module.exports = {
           name: '[name].[ext]?[hash:7]'
         }
       },
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css', 'postcss']
-      }
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['style', 'css', 'postcss']
+      // }
     ]
   },
   postcss,
   vue: {
     loaders: {},
-    postcss
+    postcss,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+      }
+    }),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require('./manifest.json')
+      manifest: require('../manifest.json')
     })
   ]
 }
