@@ -10,7 +10,7 @@
       <p class="comp">comp</p>
   </div>
 </template>
-<script type="text/babel">
+<script>
   export default {
   }
 </script>
@@ -44,7 +44,6 @@ $ npm run dev
 ``` bash
 .
 ├── build                       # 构建脚本
-│   ├── build-page.js         # 编译配置项
 │   ├── dev-server.js         # development server script
 │   ├── webpack.base.conf.js  # shared base webpack config
 │   ├── webpack.dev.conf.js   # development webpack config
@@ -64,30 +63,38 @@ $ npm run dev
 │   │      └── ...             # detail页面资源类index 
 ├── lib                       # 外部静态资源未包含在npm中的库
 ├── dist                      # 输出目录即发布目录
+├── config.js                  # 页面编译配置
 ├── .babelrc                  # babel 配置
 └── package.json              # 构建脚本和依赖
 ```
 
 ### 多页面如何配置
 
-配置在`build/build-page.js`里面    
+配置在`config.js`里面    
 
 
 ``` javascript
-const pageName = 'index'  // 本次要构建的页面
+/**
+ * 需要构建的页面 一次只构建一个页面
+ */
+const pageName = 'index'
+// 大部分页面都要用到的公共库
+const vendors = [
+  'vue',
+  'weui'
+]
 
-const vendors = ['vue']   // 多个页面公共的模块打包
 module.exports = {
   pageName: pageName,
   vendors: vendors,
-  entry: {    // 入口配置
-    app: './src/view/' + pageName + '/main.js'
-  },
-  template: './src/view/' + pageName + '/template.html',  // 页面模板
-  sourceMap: false,           //  生产环境下是否需要生成sourceMap
+  sourceMap: false,           //  生产环境下是否需要js生成sourceMap
   extractCss: true,           // 是否抽取出css
-  absolutePath: false,         // 资源引用路径是否为绝对路径  即CDN路径 默认相对路径
-  cdnUrl: 'http://cdn/'       // cdn 地址
+  // 资源引用路径是否为绝对路径 默认为相对路径
+  // cdn 地址 绝对路径的地址 如果没有cdn域名请填写 / 默认是相对路径 false
+  absolutePath: false,
+  // https://github.com/ai/browserslist#queries  前缀配置列表
+  // 查看你的配置支持的浏览器  http://browserl.ist/
+  browsers: ['ios > 6', 'android > 2.1']  // css自动加前缀 配置支持的浏览器
 }
 ```
 ### tips
