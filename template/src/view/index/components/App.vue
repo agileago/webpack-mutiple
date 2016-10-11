@@ -43,5 +43,6 @@
     line-height: 60px;
     text-align: center;
     font-size: 40px;
+    transform: rotate(45deg);
   }
 </style>

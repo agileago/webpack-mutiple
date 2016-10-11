@@ -5,7 +5,9 @@ const webpack = require('webpack')
 page.entry = { app: './src/view/' + page.pageName + '/main.js' }
 page.template = './src/view/' + page.pageName + '/template.html'
 
-const postcss = [require('autoprefixer')({ browsers: page.browsers })]
+var postcss = [require('autoprefixer')({ browsers: page.browsers })]
+
+process.env.BROWSERSLIST = page.browsers
 
 module.exports = {
   entry: page.entry,
@@ -52,20 +54,9 @@ module.exports = {
       // }
     ]
   },
-  postcss,
+  postcss: postcss,
   vue: {
     loaders: {},
-    postcss,
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('../manifest.json')
-    })
-  ]
+    postcss: postcss
+  }
 }

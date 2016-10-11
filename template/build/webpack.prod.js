@@ -16,10 +16,9 @@ cssLoaders({ sourceMap: false , extract: page.extractCss }).forEach(function (lo
 })
 
 config.plugins = (config.plugins || []).concat([
+  new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' }}),
   new ExtractTextPlugin('[name].[contenthash:8].css'),
-  new webpack.LoaderOptionsPlugin({
-    minimize: true
-  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: page.sourceMap,
     compress: {
