@@ -1,11 +1,12 @@
 const path = require('path')
-const page = require('../config')
 const webpack = require('webpack')
+const page = require('../config')
+const vueConfig = require('./vue-loader.config')
+
+process.env.BROWSERSLIST = page.browsers
 
 page.entry = { app: './src/view/' + page.pageName + '/main.js' }
 page.template = './src/view/' + page.pageName + '/template.html'
-
-const postcss = [require('autoprefixer')({ browsers: page.browsers })]
 
 module.exports = {
   entry: page.entry,
@@ -14,20 +15,12 @@ module.exports = {
     publicPath: page.absolutePath ? page.absolutePath + page.pageName + '/static/' : './static/',
     filename: '[name].js'
   },
-  resolve: {
-    extensions: ['', '.js', '.vue'],
-    alias: {
-      'src': path.resolve(__dirname, '../src')
-    }
-  },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
+        options: vueConfig
       },
       {
         test: /\.js$/,
@@ -41,31 +34,19 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url',
-        query: {
+        options: {
           limit: 10000,
           name: '[name].[ext]?[hash:7]'
         }
-      },
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['style', 'css', 'postcss']
-      // }
+      }
     ]
   },
-  postcss,
-  vue: {
-    loaders: {},
-    postcss,
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('../manifest.json')
-    })
-  ]
+  plugins: []
+}
+
+if (page.useVendor) {
+  module.exports.plugins.push(new webpack.DllReferencePlugin({
+    context: __dirname,
+    manifest: require('../manifest.json')
+  }))
 }

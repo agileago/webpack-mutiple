@@ -3,14 +3,16 @@
  */
 const pageName = 'index'
 // 大部分页面都要用到的公共库
-const vendors = [
+const vendor = [
   'vue',
+  'es6-promise',
   'weui'
 ]
 
 module.exports = {
   pageName: pageName,
-  vendors: vendors,
+  useVendor: true,           // 是否使用公共资源 需要先运行 np run vendor
+  vendor: vendor,
   sourceMap: false,           //  生产环境下是否需要js生成sourceMap
   extractCss: true,           // 是否抽取出css
   // 资源引用路径是否为绝对路径 默认为相对路径

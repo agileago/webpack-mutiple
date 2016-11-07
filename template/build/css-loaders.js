@@ -5,11 +5,6 @@ module.exports = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders (loaders) {
     var sourceLoader = loaders.map(function (loader) {
-      // webpack2 has bug on minify css autoprefixer
-      // https://github.com/postcss/autoprefixer/issues/660#issuecomment-220808316
-      if (process.env.NODE_ENV === 'production' && loader === 'css') {
-        loader += '?-autoprefixer'
-      }
       var extraParamChar
       if (/\?/.test(loader)) {
         loader = loader.replace(/\?/, '-loader?')
@@ -26,7 +21,7 @@ module.exports = function (options) {
       return ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: sourceLoader,
-        publicPath: './'
+        publicPath: page.absolutePath ? undefined : './'
       })
     } else {
       return ['style-loader', sourceLoader].join('!')
@@ -37,27 +32,27 @@ module.exports = function (options) {
   return [
     {
       key: 'css',
-      value: generateLoaders(['css'])
+      value: generateLoaders(['css', 'postcss'])
     },
     {
       key: 'less',
-      value: generateLoaders(['css', 'less'])
+      value: generateLoaders(['css', 'postcss', 'less'])
     },
     {
       key: 'sass',
-      value: generateLoaders(['css', 'sass?indentedSyntax'])
+      value: generateLoaders(['css', 'postcss', 'sass'])
     },
     {
       key: 'scss',
-      value: generateLoaders(['css', 'sass'])
+      value: generateLoaders(['css', 'postcss', 'sass'])
     },
     {
       key: 'stylus',
-      value: generateLoaders(['css', 'stylus'])
+      value: generateLoaders(['css', 'postcss', 'stylus'])
     },
     {
       key: 'styl',
-      value: generateLoaders(['css', 'stylus'])
+      value: generateLoaders(['css', 'postcss', 'stylus'])
     }
   ]
 }

@@ -3,23 +3,18 @@ const path = require('path')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var page = require('../config')
 var cssLoaders = require('./css-loaders')
+var vueConfig = require('./vue-loader.config')
 
 const postcss = [require('autoprefixer')({ browsers: page.browsers })]
 
 module.exports = {
   entry: {
-    vendor: page.vendors
+    vendor: page.vendor
   },
   output: {
     path: path.resolve(__dirname, '../lib/vendor'),
     filename: '[name].common.js',
     library: '[name]_common'
-  },
-  resolve: {
-    extensions: ['', '.js', '.vue'],
-    alias: {
-      'src': path.resolve(__dirname, '../src')
-    }
   },
   plugins: [
     new webpack.DllPlugin({
@@ -28,13 +23,13 @@ module.exports = {
       context: __dirname
     }),
     new ExtractTextPlugin('[name].common.css'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
+      options: {
+        context: path.resolve(__dirname, '../'),
+        postcss: [require('autoprefixer')({ browsers: page.browsers })]
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
@@ -44,10 +39,11 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
+        options: vueConfig
       },
       {
         test: /\.js$/,
@@ -61,7 +57,7 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url',
-        query: {
+        options: {
           limit: 8000,
           name: '[name].[ext]?[hash:7]'
         }
@@ -70,29 +66,23 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?-autoprefixer!postcss',
+          loader: 'css-loader!postcss-loader',
           publicPath: './'
         })
       },
       {
-        test: /\.scss$/,
+        test: /\.s(a|c)ss$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?-autoprefixer!postcss!sass-loader',
+          loader: 'css-loader!postcss-loader!sass-loader',
           publicPath: './'
         })
       }
     ]
-  },
-  postcss,
-  vue: {
-    loaders: {},
-    postcss,
-  },
+  }
 }
 
-var config = module.exports
-
+vueConfig.loaders = vueConfig.loaders || {}
 cssLoaders({ sourceMap: false , extract: true }).forEach(function (loader) {
-  config.vue.loaders[loader.key] = loader.value
+  vueConfig.loaders[loader.key] = loader.value
 })
