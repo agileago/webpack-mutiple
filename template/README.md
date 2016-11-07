@@ -49,7 +49,8 @@ npm run build
 命令进行打包 `dist`文件夹里面即是最终的发布文件
 
 
-### `config.js`内容详解 注：（`config.js`需要被项目忽略掉，每个组员需要自己新建`config.js`并且禁止提交）
+### `config.js`内容详解 
+注：（`config.js`需要被项目忽略掉，每个组员需要自己新建`config.js`并且禁止提交）
 
 ```javascript
 /**
