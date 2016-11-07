@@ -1,31 +1,12 @@
-# vue-webpack-mutiple-boilerplate
-这个模板主要为开发多页面而创建   
+# webpack-mutiple
+### vue多页面开发脚手架
 
-推荐使用`webstorm`12以上版本进行开发,因为12以上版本支持行内`sass/less`,并且拥有强大的智能提示,这样我们就可以把一些公共函数、变量定义到外面,轻松
-使用`sass/less`强大的编程功能书写css,例如:
+vue官方只提供了单页面的脚手架，但我们可以根据它来改造成多页面，开发的时候我们每次只开发一个页面，而不是同时开发多个页面，所以项目根路径下应该有个配置js，来指明这次要开发的页面
 
-``` html
-<template>
-  <div>
-      <p class="comp">comp</p>
-  </div>
-</template>
-<script>
-  export default {
-  }
-</script>
-
-<style lang="scss" rel=stylesheet/scss>
-  @import "variable";
-  @import "fn";
-  
-  .comp {
-    color: $default;      // $default 是预先定义的主题颜色
-    height: px2rem(50); // px2rem函数是一些辅助函数
-  }
-
-</style>
-```
+### 工具推荐
+1. 最新版webstorm
+2. 使用[yarn](https://yarnpkg.com/)安装依赖（提供lock功能） 国内用户请使用淘宝源   
+`yarn config set registry https://registry.npm.taobao.org`  
 
 ### 使用
 
@@ -35,37 +16,8 @@
 $ npm install -g vue-cli
 $ vue init agileago/webpack-mutiple my-project
 $ cd my-project
-$ npm install
+$ npm install （或者 yarn）
 $ npm run dev
-```
-
-### 目录结构
-
-``` bash
-.
-├── build                       # 构建脚本
-│   ├── dev-server.js         # development server script
-│   ├── webpack.base.conf.js  # shared base webpack config
-│   ├── webpack.dev.conf.js   # development webpack config
-│   ├── webpack.prod.conf.js  # production webpack config
-│   └── ...
-├── src
-│   ├── common               # 多个页面公用的组件或者功能库
-│   │   └── components      # 公用组件
-│   │   └── util              # 公用工具库
-│   ├── view                   # 多页面开发文件夹
-│   │   └── index             # index页面
-│   │      └── assets         # index页面的静态资源如图片等
-│   │      └── components    # index页面需要的组件
-│   │      └── main.js        # index页面入口文件
-│   │      └── template.html # index页面html模板
-│   │   └── detail             # detail 页面
-│   │      └── ...             # detail页面资源类index 
-├── lib                       # 外部静态资源未包含在npm中的库
-├── dist                      # 输出目录即发布目录
-├── config.js                  # 页面编译配置
-├── .babelrc                  # babel 配置
-└── package.json              # 构建脚本和依赖
 ```
 
 ### 多页面如何配置
@@ -86,6 +38,7 @@ const vendors = [
 
 module.exports = {
   pageName: pageName,
+  userVendors: true,          //  是否使用公共资源
   vendors: vendors,
   sourceMap: false,           //  生产环境下是否需要js生成sourceMap
   extractCss: true,           // 是否抽取出css
@@ -97,6 +50,10 @@ module.exports = {
   browsers: ['ios > 6', 'android > 2.1']  // css自动加前缀 配置支持的浏览器
 }
 ```
+
+### 生成页面
+每做一个新页面需要在`src/views/`下面生成一个页面文件夹，文件夹里面需要包含一个入口文件 `main.js` 和页面模板文件 `template.html`,具体请看`index`示例页面
+
 ### tips
 
 当想在工程里面引入`node_modules`下工程某些源代码,但这些源代码有可能是es6语法的,可直接在webpack的
