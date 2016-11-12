@@ -15,5 +15,6 @@
       "type": "string",
       "label": "Author"
     }
-  }
+  },
+  "skipInterpolation": "src/**/*.vue"
 }
