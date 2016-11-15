@@ -42,21 +42,21 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue',
+        loader: 'vue-loader',
         options: vueConfig
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
+        loader: 'url-loader',
         options: {
           limit: 8000,
           name: '[name].[ext]?[hash:7]'

@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <header class="index-title">{{ msg }}</header>
-    <h4 class="main-title">特点</h4>
+    <h4 class="main-title header">特点</h4>
     <div class="main">
       <h2>插入图片</h2>
       <div class="insert-img"><img src="../assets/turn-pointer.png"></div>
@@ -9,7 +9,8 @@
       <div class="bg-img"></div>
       <h2>自动填充css前缀</h2>
       <div class="prefix-css"></div>
-      <h2>异步加载 <button @click="asyncLoad" class="weui_btn weui_btn_mini weui_btn_primary">点我加载</button></h2>
+      <h2>异步加载 <button @click="asyncLoad" class="weui-btn weui-btn_mini weui-btn_primary">点我加载</button></h2>
+      <div class="flex">flex布局</div>
       <shape v-if="load"></shape>
     </div>
   </div>
@@ -92,5 +93,13 @@
     border-bottom: 60px solid red;
     display: inline-block;
     transform: rotate(45deg);
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    background-color: #ccc;
+    color: #fff;
+    justify-content: center;
+    height: 50px;
   }
 </style>
