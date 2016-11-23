@@ -9,7 +9,9 @@
       <div class="bg-img"></div>
       <h2>自动填充css前缀</h2>
       <div class="prefix-css"></div>
-      <h2>异步加载 <button @click="asyncLoad" class="weui-btn weui-btn_mini weui-btn_primary">点我加载</button></h2>
+      <h2>异步加载
+        <button @click="asyncLoad" class="weui-btn weui-btn_mini weui-btn_primary">点我加载</button>
+      </h2>
       <div class="flex">flex布局</div>
       <shape v-if="load"></shape>
     </div>
@@ -35,7 +37,7 @@
   }
 </script>
 
-<style lang="sass" rel="stylesheet/scss">
+<style lang="less" rel="stylesheet/less">
   .index-title {
     text-align: center;
     font-size: 30px;
@@ -43,18 +45,15 @@
     color: #42b983;
     letter-spacing: 3px;
     animation: slideTop 1s ease;
-
-    @at-root {
-      @keyframes slideTop {
-        0% {
-          opacity: 0.1;
-          transform: translateY(100px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+  }
+  @keyframes slideTop {
+    0% {
+      opacity: 0.1;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   .main {

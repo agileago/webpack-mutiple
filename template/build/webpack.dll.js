@@ -77,6 +77,14 @@ module.exports = {
           loader: 'css-loader!postcss-loader!sass-loader',
           publicPath: './'
         })
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader!postcss-loader!less-loader',
+          publicPath: './'
+        })
       }
     ]
   }
