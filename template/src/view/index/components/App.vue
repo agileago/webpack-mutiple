@@ -32,7 +32,7 @@
       }
     },
     components: {
-      Shape: () => System.import('./Shape.vue')
+      Shape: () => import('./Shape.vue')
     }
   }
 </script>
