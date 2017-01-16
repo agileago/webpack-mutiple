@@ -5,8 +5,8 @@ const vueConfig = require('./vue-loader.config')
 
 process.env.BROWSERSLIST = page.browsers
 
-page.entry = { app: './src/view/' + page.pageName + '/main.js' }
-page.template = './src/view/' + page.pageName + '/template.html'
+page.entry = { app: path.resolve(__dirname, '../src/view/' + page.pageName + '/main.js') }
+page.template = path.resolve(__dirname, '../src/view/' + page.pageName + '/template.html')
 
 module.exports = {
   entry: page.entry,
@@ -28,14 +28,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
-      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 8000,
           name: '[name].[ext]?[hash:7]'
         }
       }

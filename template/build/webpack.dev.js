@@ -21,7 +21,7 @@ config.plugins = config.plugins.concat([
     'process.env.NODE_ENV': JSON.stringify('development')
   }),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
   new webpack.LoaderOptionsPlugin({
     options: {
       context: path.resolve(__dirname, '../'),
