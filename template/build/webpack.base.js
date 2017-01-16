@@ -11,9 +11,12 @@ page.template = path.resolve(__dirname, '../src/view/' + page.pageName + '/templ
 module.exports = {
   entry: page.entry,
   output: {
-    path: path.resolve(__dirname, '../dist/'+ page.pageName +'/static'),
+    path: path.resolve(__dirname, '../dist/' + page.pageName + '/static'),
     publicPath: page.absolutePath ? page.absolutePath + page.pageName + '/static/' : './static/',
     filename: '[name].js'
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.vue']
   },
   module: {
     rules: [
