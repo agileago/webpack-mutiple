@@ -4,6 +4,11 @@
   "author": "agileago <agileago@gmail.com>",
   "version": "0.0.1",
   "private": true,
+  "vendor": [
+    "vue",
+    "es6-promise",
+    "weui"
+  ],
   "scripts": {
     "dev": "node build/server.js",
     "build": "webpack --hide-modules --config build/webpack.prod.js && ncp lib dist/lib",

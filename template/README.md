@@ -30,7 +30,7 @@
 ### 使用说明
 团队里面每个人在开始开发页面之前,需要在`config.js`配置一下需要开发的页面        
 
-### 首先打包公共资源vendor
+### 首先打包公共资源vendor, 公共资源配置在 `package.json`中，统一管理
 ```
 npm run vendor
 ```
@@ -57,17 +57,10 @@ npm run build
  * 需要构建的页面 一次只构建一个页面
  */
 const pageName = 'index'
-// 大部分页面都要用到的公共库 这个是由团队负责人统一管理的
-const vendor = [
-  'vue',
-  'es6-promise',
-  'weui'
-]
 
 module.exports = {
   pageName: pageName,
   useVendor: true,           // 是否使用公共资源 需要先运行 np run vendor
-  vendor: vendor,
   sourceMap: false,           //  生产环境下是否需要js生成sourceMap
   extractCss: true,           // 是否抽取出css
   // 资源引用路径是否为绝对路径 默认为相对路径
