@@ -6,7 +6,9 @@ vue官方只提供了单页面的脚手架，但我们可以根据它来改造�
 ### 工具推荐
 1. 最新版webstorm
 2. 使用[yarn](https://yarnpkg.com/)安装依赖（提供lock功能） 国内用户请使用淘宝源   
-`yarn config set registry https://registry.npm.taobao.org`  
+`yarn config set registry https://registry.npm.taobao.org`    
+3. node-sass安装失败解决方案
+`SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass`
 
 ### 使用
 
