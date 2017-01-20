@@ -30,16 +30,10 @@ $ npm run dev
  * 需要构建的页面 一次只构建一个页面
  */
 const pageName = 'index'
-// 大部分页面都要用到的公共库
-const vendors = [
-  'vue',
-  'weui'
-]
 
 module.exports = {
   pageName: pageName,
   userVendors: true,          //  是否使用公共资源
-  vendors: vendors,
   sourceMap: false,           //  生产环境下是否需要js生成sourceMap
   extractCss: true,           // 是否抽取出css
   // 资源引用路径是否为绝对路径 默认为相对路径
@@ -51,6 +45,9 @@ module.exports = {
 }
 ```
 
+### 公共资源 vendor
+多个页面需要共享资源库，利用webpack的dll功能生成vendor, vendor的配置在 `package.json`中
+
 ### 生成页面
 每做一个新页面需要在`src/views/`下面生成一个页面文件夹，文件夹里面需要包含一个入口文件 `main.js` 和页面模板文件 `template.html`,具体请看`index`示例页面
 
@@ -60,7 +57,8 @@ module.exports = {
 loader里面添加
 ```javascript
 {
-  test: /vux.src.*?js$/
+  test: /vux.src.*?js$/,
+  loader: 'babel-loader'
 }
 ```
 就是模块名 . 源码文件夹 js文件
