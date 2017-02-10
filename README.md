@@ -19,6 +19,7 @@ $ npm install -g vue-cli
 $ vue init agileago/webpack-mutiple my-project
 $ cd my-project
 $ npm install （或者 yarn）
+$ npm run vendor
 $ npm run dev
 ```
 
