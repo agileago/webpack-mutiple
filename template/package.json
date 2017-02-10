@@ -21,18 +21,18 @@
     "weui": "^1.1.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.6.1",
-    "babel-core": "^6.21.0",
+    "autoprefixer": "^6.7.2",
+    "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.26.1",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.14.0",
+    "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
-    "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.26.0",
+    "file-loader": "^0.10.0",
+    "html-webpack-plugin": "^2.28.0",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "ncp": "^2.0.0",
@@ -40,10 +40,10 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "vue-loader": "^10.0.2",
+    "vue-loader": "^10.3.0",
     "vue-template-compiler": "^2.1.10",
-    "webpack": "^2.2.0",
-    "webpack-dev-middleware": "^1.9.0",
-    "webpack-hot-middleware": "^2.15.0"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.16.1"
   }
 }
