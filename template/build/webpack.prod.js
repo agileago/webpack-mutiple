@@ -8,7 +8,7 @@ var rimraf = require('rimraf')
 var path = require('path')
 var vueConfig = require('./vue-loader.config')
 
-config.output.filename = '[name].[chunkhash:8].js'
+config.output.filename = '[name].js'
 config.output.chunkFilename = '[id].[chunkhash:8].js'
 config.devtool = page.sourceMap ? 'source-map' : false
 
@@ -24,7 +24,7 @@ cssLoaders({ sourceMap: false , extract: page.extractCss }).forEach(function (lo
 })
 
 if (page.extractCss) {
-  config.plugins.push(new ExtractTextPlugin('[name].[contenthash:8].css'))
+  config.plugins.push(new ExtractTextPlugin('[name].css'))
 }
 
 config.plugins = config.plugins.concat([
@@ -48,12 +48,8 @@ config.plugins = config.plugins.concat([
     filename: '../index.html',
     template: page.template,
     inject: true,
-    path: page.absolutePath ? page.absolutePath : '../',
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true
-    }
+    hash: true,
+    path: page.absolutePath ? page.absolutePath : '../'
   })
 ])
 

@@ -19,8 +19,8 @@ module.exports = function (options) {
     if (options.extract) {
       // override publicPath
       return ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: sourceLoader,
+        fallback: 'style-loader',
+        use: sourceLoader,
         publicPath: page.absolutePath ? undefined : './'
       })
     } else {
