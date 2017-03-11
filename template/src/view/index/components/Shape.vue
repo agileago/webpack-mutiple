@@ -25,4 +25,7 @@
     text-align: center;
     margin: 10px auto;
   }
+  .shape {
+    color: #fff;
+  }
 </style>

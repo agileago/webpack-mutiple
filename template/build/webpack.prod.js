@@ -7,6 +7,7 @@ var page = require('../config')
 var rimraf = require('rimraf')
 var path = require('path')
 var vueConfig = require('./vue-loader.config')
+var vuxLoader = require('vux-loader')
 
 config.output.filename = '[name].js'
 config.output.chunkFilename = '[id].[chunkhash:8].js'
@@ -56,3 +57,9 @@ config.plugins = config.plugins.concat([
 rimraf.sync(path.resolve(__dirname, '../dist/' + page.pageName))
 
 module.exports = config
+module.exports = vuxLoader.merge(config, {
+  plugins: [
+    // { name: 'vux-ui' },
+    { name: 'duplicate-style' }
+  ]
+})
