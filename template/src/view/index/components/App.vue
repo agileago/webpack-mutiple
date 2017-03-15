@@ -26,6 +26,9 @@
         load: false
       }
     },
+    mounted () {
+      $message('vux 真棒')
+    },
     methods: {
       asyncLoad () {
         this.load = true

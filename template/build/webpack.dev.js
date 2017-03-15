@@ -5,6 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var page = require('../config')
 var vueConfig = require('./vue-loader.config')
 var path = require('path')
+var vuxLoader = require('vux-loader')
 
 config.devtool = 'source-map'
 cssLoaders({ sourceMap: false, extract: false }).forEach(function (loader) {
@@ -35,4 +36,10 @@ config.plugins = config.plugins.concat([
   })
 ])
 
-module.exports = config
+// module.exports = config
+
+module.exports = vuxLoader.merge(config, {
+  plugins: [
+    { name: 'vux-ui' }
+  ]
+})

@@ -56,10 +56,10 @@ config.plugins = config.plugins.concat([
 
 rimraf.sync(path.resolve(__dirname, '../dist/' + page.pageName))
 
-module.exports = config
+// module.exports = config
 module.exports = vuxLoader.merge(config, {
   plugins: [
-    // { name: 'vux-ui' },
+    { name: 'vux-ui' },
     { name: 'duplicate-style' }
   ]
 })
