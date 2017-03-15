@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'production'
+
 var webpack = require('webpack')
 var config = require('./webpack.base.js')
 var cssLoaders = require('./css-loaders')
