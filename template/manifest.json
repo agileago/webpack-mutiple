@@ -1,0 +1,30 @@
+{
+  "name": "vendor_common",
+  "content": {
+    "../node_modules/webpack/buildin/global.js": {
+      "id": 0,
+      "meta": {}
+    },
+    "../node_modules/es6-promise/dist/es6-promise.js": {
+      "id": 1,
+      "meta": {}
+    },
+    "../node_modules/weui/dist/style/weui.css": {
+      "id": 2,
+      "meta": {}
+    },
+    "../node_modules/vue/dist/vue.runtime.esm.js": {
+      "id": 3,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "default"
+      ]
+    },
+    "../node_modules/process/browser.js": {
+      "id": 4,
+      "meta": {}
+    }
+  }
+}

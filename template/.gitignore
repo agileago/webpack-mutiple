@@ -2,14 +2,3 @@
 node_modules/
 npm-debug.log
 .idea
-manifest.json
-lib/vendor
-build
-lib
-src
-.babelrc
-config.js
-gulpfile.js
-package.json
-README.md
-yarn.lock
