@@ -12,11 +12,11 @@ var vueConfig = require('./vue-loader.config')
 var vuxLoader = require('vux-loader')
 
 config.output.filename = '[name].js'
-config.output.chunkFilename = '[id].[chunkhash:8].js'
+config.output.chunkFilename = '[id].js?[chunkhash:7]'
 config.devtool = page.sourceMap ? 'source-map' : false
 
 vueConfig.loaders = vueConfig.loaders || {}
-cssLoaders({ sourceMap: false , extract: page.extractCss }).forEach(function (loader) {
+cssLoaders({ sourceMap: false, extract: page.extractCss }).forEach(function (loader) {
   if (page.extractCss) {
     vueConfig.loaders[loader.key] = loader.value
   }
@@ -58,10 +58,4 @@ config.plugins = config.plugins.concat([
 
 rimraf.sync(path.resolve(__dirname, '../dist/' + page.pageName))
 
-// module.exports = config
-module.exports = vuxLoader.merge(config, {
-  plugins: [
-    { name: 'vux-ui' },
-    { name: 'duplicate-style' }
-  ]
-})
+module.exports = vuxLoader.merge(config, { plugins: ['vux-ui', 'duplicate-style'] })

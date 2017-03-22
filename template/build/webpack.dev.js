@@ -38,8 +38,4 @@ config.plugins = config.plugins.concat([
 
 // module.exports = config
 
-module.exports = vuxLoader.merge(config, {
-  plugins: [
-    { name: 'vux-ui' }
-  ]
-})
+module.exports = vuxLoader.merge(config, { plugins: ['vux-ui'] })

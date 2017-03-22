@@ -40,7 +40,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="less" type="text/less">
   .index-title {
     text-align: center;
     font-size: 30px;

@@ -40,7 +40,10 @@ module.exports = {
       }
     ]
   },
-  plugins: []
+  plugins: [],
+  node: {  // to fix css-loader add node-shim
+    Buffer: false
+  }
 }
 
 if (page.useVendor) {
