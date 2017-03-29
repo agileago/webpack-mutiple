@@ -4336,9 +4336,9 @@ strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
 
-style-loader@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.16.0.tgz#5f001a9bf58fff9fd40f8aa3b9738ab99d4000c7"
+style-loader@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.16.1.tgz#50e325258d4e78421dd9680636b41e8661595d10"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -4666,9 +4666,9 @@ vue-hot-reload-api@^2.0.11:
   version "2.0.11"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.0.11.tgz#bf26374fb73366ce03f799e65ef5dfd0e28a1568"
 
-vue-loader@^11.3.3:
-  version "11.3.3"
-  resolved "https://registry.npmjs.org/vue-loader/-/vue-loader-11.3.3.tgz#045d27afacf70c58889d46debe4adf6d67ec8cf3"
+vue-loader@^11.3.4:
+  version "11.3.4"
+  resolved "https://registry.npmjs.org/vue-loader/-/vue-loader-11.3.4.tgz#65e10a44ce092d906e14bbc72981dec99eb090d2"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
@@ -4690,9 +4690,9 @@ vue-style-loader@^2.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.2.5.tgz#71b1366c3f716e8137a87f82591de9f816609b57"
+vue-template-compiler@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -4701,13 +4701,9 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
 
-vue@^2.2.2:
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/vue/-/vue-2.2.4.tgz#d0a3a050a80a12356d7950ae5a7b3131048209cc"
-
-vue@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.npmjs.org/vue/-/vue-2.2.5.tgz#528eba68447d7eff99f86767b31176aa656c6963"
+vue@^2.2.2, vue@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.npmjs.org/vue/-/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
 
 vux-blazy@^1.6.4:
   version "1.6.4"
@@ -4736,9 +4732,9 @@ vux-xscroll@^3.1.8:
   version "3.1.8"
   resolved "https://registry.npmjs.org/vux-xscroll/-/vux-xscroll-3.1.8.tgz#540fd7857e5fa0b8e2eb7a86c64dc49abd994888"
 
-vux@^2.1.1-rc.13:
-  version "2.1.1-rc.13"
-  resolved "https://registry.npmjs.org/vux/-/vux-2.1.1-rc.13.tgz#a5ce1823435bf6fcc720602a1ae7db4fba0ffa64"
+vux@^2.1.1-rc.14:
+  version "2.1.1-rc.14"
+  resolved "https://registry.npmjs.org/vux/-/vux-2.1.1-rc.14.tgz#ca9a855662783cc8988b5bf2deb382ab0a74603e"
   dependencies:
     array-filter "^1.0.0"
     array-find "^1.0.0"

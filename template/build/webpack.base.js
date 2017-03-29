@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const page = require('../config')
+const page = require('./config')
 const vueConfig = require('./vue-loader.config')
 
 process.env.BROWSERSLIST = page.browsers

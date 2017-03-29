@@ -1,7 +1,7 @@
 /**
  * 需要构建的页面 一次只构建一个页面
  */
-const pageName = 'index'
+const pageName = require('../page')
 
 const notUseVendor = []          // 不使用公共资源的页面集合
 const notExtractCss = []         // 不抽取css的页面
