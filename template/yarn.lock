@@ -54,6 +54,12 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animejs@^2.0.2:
+  version "2.0.2"
+  resolved "http://registry.npm.taobao.org/animejs/download/animejs-2.0.2.tgz#6c80ee92253d9429b58b4c0be597772cd7c82d7a"
+  dependencies:
+    google-closure-compiler-js "^20170124.0.0"
+
 ansi-html@0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
@@ -214,6 +220,10 @@ autoprefixer@^6.3.1, autoprefixer@^6.7.7:
     num2fraction "^1.2.2"
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
+
+autosize@^3.0.20:
+  version "3.0.20"
+  resolved "http://registry.npm.taobao.org/autosize/download/autosize-3.0.20.tgz#e343ea7c5603834738169420f0349dc953e62a9e"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -392,14 +402,13 @@ babel-helpers@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-loader@^6.4.1:
-  version "6.4.1"
-  resolved "https://registry.npmjs.org/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
+babel-loader@^7.0.0:
+  version "7.0.0"
+  resolved "http://registry.npm.taobao.org/babel-loader/download/babel-loader-7.0.0.tgz#2e43a66bee1fff4470533d0402c8a4532fafbaf7"
   dependencies:
     find-cache-dir "^0.1.1"
-    loader-utils "^0.2.16"
+    loader-utils "^1.0.2"
     mkdirp "^0.5.1"
-    object-assign "^4.0.1"
 
 babel-messages@^6.23.0:
   version "6.23.0"
@@ -2037,6 +2046,14 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
+google-closure-compiler-js@^20170124.0.0:
+  version "20170124.0.0"
+  resolved "http://registry.npm.taobao.org/google-closure-compiler-js/download/google-closure-compiler-js-20170124.0.0.tgz#cd77291a19a4158eb41fb241688a5e523e250364"
+  dependencies:
+    gulp-util "^3.0.7"
+    minimist "^1.2.0"
+    webpack-core "^0.6.8"
+
 graceful-fs@^3.0.0:
   version "3.0.11"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-3.0.11.tgz#7613c778a1afea62f25c630a086d7f3acbbdd818"
@@ -2062,7 +2079,7 @@ gulp-rev-hash3@^1.0.9:
     gulp-util "~2.2.14"
     through2 "~0.4.1"
 
-gulp-util@^3.0.0:
+gulp-util@^3.0.0, gulp-util@^3.0.7:
   version "3.0.8"
   resolved "https://registry.npmjs.org/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -3379,6 +3396,10 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
+path-parse@^1.0.5:
+  version "1.0.5"
+  resolved "http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
+
 path-root-regex@^0.1.0:
   version "0.1.2"
   resolved "https://registry.npmjs.org/path-root-regex/-/path-root-regex-0.1.2.tgz#bfccdc8df5b12dc52c8b43ec38d18d72c04ba96d"
@@ -4060,9 +4081,11 @@ resolve-dir@^0.1.0:
     expand-tilde "^1.2.2"
     global-modules "^0.2.3"
 
-resolve@^1.1.6, resolve@^1.1.7:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/resolve/-/resolve-1.2.0.tgz#9589c3f2f6149d1417a40becc1663db6ec6bc26c"
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.3.3:
+  version "1.3.3"
+  resolved "http://registry.npm.taobao.org/resolve/download/resolve-1.3.3.tgz#655907c3469a8680dc2de3a275a8fdd69691f0e5"
+  dependencies:
+    path-parse "^1.0.5"
 
 right-align@^0.1.1:
   version "0.1.3"
@@ -4205,7 +4228,7 @@ source-map-url@0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
 
-source-map@0.4.x:
+source-map@0.4.x, source-map@~0.4.1:
   version "0.4.4"
   resolved "https://registry.npmjs.org/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
@@ -4658,13 +4681,13 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-hot-reload-api@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.0.11.tgz#bf26374fb73366ce03f799e65ef5dfd0e28a1568"
+vue-hot-reload-api@^2.1.0:
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-loader@^11.3.4:
-  version "11.3.4"
-  resolved "https://registry.npmjs.org/vue-loader/-/vue-loader-11.3.4.tgz#65e10a44ce092d906e14bbc72981dec99eb090d2"
+vue-loader@^12.0.2:
+  version "12.0.2"
+  resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-12.0.2.tgz#f539036b1e0e9516b474a8fd1b5f533145248406"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
@@ -4674,21 +4697,22 @@ vue-loader@^11.3.4:
     postcss "^5.0.21"
     postcss-load-config "^1.1.0"
     postcss-selector-parser "^2.0.0"
+    resolve "^1.3.3"
     source-map "^0.5.6"
-    vue-hot-reload-api "^2.0.11"
-    vue-style-loader "^2.0.0"
+    vue-hot-reload-api "^2.1.0"
+    vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
-vue-style-loader@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/vue-style-loader/-/vue-style-loader-2.0.3.tgz#b464ffb6279702d4137a80ac81b5c12ac440f0a0"
+vue-style-loader@^3.0.0:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/vue-style-loader/download/vue-style-loader-3.0.1.tgz#c8b639bb2f24baf9d78274dc17e4f264c1deda08"
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
+vue-template-compiler@^2.3.0:
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.3.0.tgz#a89a17064b68e182569da51ebbedd71ce57f93bf"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -4697,17 +4721,17 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
 
-vue@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.npmjs.org/vue/-/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
+vue@^2.3.0:
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/vue/download/vue-2.3.0.tgz#bc44db0488c5245c788304c7683efe7b4c862d82"
 
 vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "https://registry.npmjs.org/vux-blazy/-/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.0.57:
-  version "1.0.57"
-  resolved "https://registry.npmjs.org/vux-loader/-/vux-loader-1.0.57.tgz#28fd7ca2619fe1d37b47580111f1ec7792fbb409"
+vux-loader@^1.0.58:
+  version "1.0.58"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.58.tgz#cbd84df784751afa224f80fa770e02e1bcbe205b"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
@@ -4724,19 +4748,20 @@ vux-loader@^1.0.57:
     webpack-merge "^1.1.2"
     webpack-sources "^0.1.2"
 
-vux-xscroll@^3.1.9:
-  version "3.1.9"
-  resolved "https://registry.npmjs.org/vux-xscroll/-/vux-xscroll-3.1.9.tgz#65330c4c0522afc554465ff481ca6f8907340a62"
+vux-xscroll@^3.1.10:
+  version "3.1.10"
+  resolved "http://registry.npm.taobao.org/vux-xscroll/download/vux-xscroll-3.1.10.tgz#6b145d94308b0431fc6f3e8de954048efd6e4de1"
 
-vux@^2.2.1-rc.5:
-  version "2.2.1-rc.5"
-  resolved "https://registry.npmjs.org/vux/-/vux-2.2.1-rc.5.tgz#5b3e0cb8ac47d3e76ec9a2cc70976c093d23163c"
+vux@^2.2.1:
+  version "2.2.1"
+  resolved "http://registry.npm.taobao.org/vux/download/vux-2.2.1.tgz#a47b4613cb4532dab4e461b52de0aaf0131dfdc6"
   dependencies:
     array-filter "^1.0.0"
     array-find "^1.0.0"
     array-from "^2.1.1"
     array-map "^0.0.0"
     array-shuffle "^1.0.1"
+    autosize "^3.0.20"
     axios "^0.15.3"
     blueimp-md5 "^2.6.0"
     countup.js "^1.8.1"
@@ -4749,7 +4774,7 @@ vux@^2.2.1-rc.5:
     shake.js "^1.2.2"
     validator "^6.2.1"
     vux-blazy "^1.6.4"
-    vux-xscroll "^3.1.9"
+    vux-xscroll "^3.1.10"
     webp-support "^1.0.3"
     weixin-js-sdk "^1.2.0"
 
@@ -4765,9 +4790,16 @@ webp-support@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/webp-support/-/webp-support-1.0.3.tgz#dd2af763758fa509e20419740920b77c22ff3c5d"
 
-webpack-dev-middleware@^1.10.1:
-  version "1.10.1"
-  resolved "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-1.10.1.tgz#c6b4cf428139cf1aefbe06a0c00fdb4f8da2f893"
+webpack-core@^0.6.8:
+  version "0.6.9"
+  resolved "http://registry.npm.taobao.org/webpack-core/download/webpack-core-0.6.9.tgz#fc571588c8558da77be9efb6debdc5a3b172bdc2"
+  dependencies:
+    source-list-map "~0.1.7"
+    source-map "~0.4.1"
+
+webpack-dev-middleware@^1.10.2:
+  version "1.10.2"
+  resolved "http://registry.npm.taobao.org/webpack-dev-middleware/download/webpack-dev-middleware-1.10.2.tgz#2e252ce1dfb020dbda1ccb37df26f30ab014dbd1"
   dependencies:
     memory-fs "~0.4.1"
     mime "^1.3.4"
@@ -4839,9 +4871,9 @@ weixin-js-sdk@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/weixin-js-sdk/-/weixin-js-sdk-1.2.0.tgz#5132949eb65b3d4e5f3e052bd3b6b10abdf47d55"
 
-weui@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/weui/-/weui-1.1.1.tgz#89521af4d47039714825c6887f2e8b2bdabeb121"
+weui@^1.1.2:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/weui/download/weui-1.1.2.tgz#e33f771e2248edfe0fd07a2c6eadb3e7931a00cc"
 
 whet.extend@~0.9.9:
   version "0.9.9"

@@ -40,7 +40,9 @@ module.exports = {
       }
     ]
   },
-  plugins: [],
+  plugins: [
+    new webpack.HashedModuleIdsPlugin()
+  ],
   node: {  // to fix css-loader add node-shim
     Buffer: false
   }

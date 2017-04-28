@@ -37,7 +37,8 @@ const config = {
       compress: {
         warnings: false
       }
-    })
+    }),
+    new webpack.HashedModuleIdsPlugin()
   ],
   module: {
     rules: [
@@ -60,6 +61,9 @@ const config = {
         }
       }
     ]
+  },
+  node: {
+    Buffer: false
   }
 }
 

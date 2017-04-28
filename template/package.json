@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "private": true,
   "vendor": [
+    "animejs",
     "vue",
     "es6-promise",
     "weui"
@@ -16,15 +17,16 @@
     "cplib": "ncp lib dist/lib"
   },
   "dependencies": {
+    "animejs": "^2.0.2",
     "es6-promise": "^4.1.0",
-    "vue": "^2.2.6",
-    "vux": "^2.2.1-rc.5",
-    "weui": "^1.1.1"
+    "vue": "^2.3.0",
+    "vux": "^2.2.1",
+    "weui": "^1.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
+    "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "connect-history-api-fallback": "^1.3.0",
@@ -43,11 +45,11 @@
     "rimraf": "^2.6.1",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
-    "vue-loader": "^11.3.4",
-    "vue-template-compiler": "^2.2.6",
-    "vux-loader": "^1.0.57",
+    "vue-loader": "^12.0.2",
+    "vue-template-compiler": "^2.3.0",
+    "vux-loader": "^1.0.58",
     "webpack": "^2.4.1",
-    "webpack-dev-middleware": "^1.10.1",
+    "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0"
   }
 }
