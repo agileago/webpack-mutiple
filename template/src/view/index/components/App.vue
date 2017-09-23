@@ -3,7 +3,7 @@
     <header class="index-title">{{ msg }}</header>
     <h4 class="main-title header">特点</h4>
     <div class="main">
-      <h2>插入图片</h2>
+      <h2>插入图片111</h2>
       <div class="insert-img"><img src="../assets/turn-pointer.png"></div>
       <h2>背景图片</h2>
       <div class="bg-img"></div>
