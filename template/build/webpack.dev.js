@@ -32,7 +32,8 @@ config.plugins = config.plugins.concat([
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: page.template,
-    inject: true
+    inject: true,
+    path: '/'
   })
 ])
 
