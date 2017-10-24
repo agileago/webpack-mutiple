@@ -3,7 +3,11 @@
     <header class="index-title">{{ msg }}</header>
     <h4 class="main-title header">特点</h4>
     <div class="main">
-      <h2>插入图片111</h2>
+      <h2>svg图标解决方案</h2>
+      <div class="vue-svg">
+        <svgicon name="face" width="50px" height="50px" color="red"></svgicon>
+      </div>
+      <h2>插入图片</h2>
       <div class="insert-img"><img src="../assets/turn-pointer.png"></div>
       <h2>背景图片</h2>
       <div class="bg-img"></div>
@@ -35,7 +39,7 @@
       }
     },
     components: {
-      Shape: () => import('./Shape.vue')
+      Shape: () => import(/* webpackChunkName: "shape" */ './Shape.vue')
     }
   }
 </script>

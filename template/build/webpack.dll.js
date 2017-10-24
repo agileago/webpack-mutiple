@@ -6,8 +6,6 @@ var cssLoaders = require('./css-loaders')
 var vueConfig = require('./vue-loader.config')
 var vendor = require('../package.json').vendor
 
-const postcss = [require('autoprefixer')({ browsers: page.browsers })]
-
 const config = {
   entry: {
     vendor: vendor

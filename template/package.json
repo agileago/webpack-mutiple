@@ -14,12 +14,14 @@
     "dev": "node build/server.js",
     "build": "webpack --hide-modules --config build/webpack.prod.js && ncp lib dist/lib && gulp",
     "vendor": "rm -rf lib/vendor && webpack --config build/webpack.dll.js",
-    "cplib": "ncp lib dist/lib"
+    "cplib": "ncp lib dist/lib",
+    "svg": "vsvg -s ./src/common/svg/ -t ./src/common/icons/"
   },
   "dependencies": {
     "animejs": "^2.0.2",
     "es6-promise": "^4.1.1",
     "vue": "^2.4.2",
+    "vue-svgicon": "^2.1.0",
     "vux": "^2.5.3",
     "weui": "^1.1.2"
   },

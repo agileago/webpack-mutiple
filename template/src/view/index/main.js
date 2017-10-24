@@ -3,6 +3,15 @@ require('es6-promise').polyfill()
 import 'weui'
 import App from './components/App.vue'
 import { ToastPlugin } from 'vux'
+import * as svgicon from 'vue-svgicon'
+import '../../common/style/svg.css'
+import '../../common/icons'
+
+Vue.use(svgicon, {
+  tagname: 'svgicon',
+  defaultWidth: '1.2em',
+  defaultHeight: '1.2em'
+})
 
 Vue.use(ToastPlugin)
 
